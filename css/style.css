@@ -1,0 +1,304 @@
+/* =========================
+   CSS VARIABLES (THEME)
+========================= */
+:root{
+    --bg-color:#ffffff;
+    --text-color:#222;
+    --primary:#2563eb;
+    --secondary:#f4f4f4;
+    --card-bg:#ffffff;
+    --border:#e5e7eb;
+    --shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.dark-mode{
+    --bg-color:#121212;
+    --text-color:#f5f5f5;
+    --primary:#60a5fa;
+    --secondary:#1f1f1f;
+    --card-bg:#1e1e1e;
+    --border:#2a2a2a;
+    --shadow:0 4px 12px rgba(255,255,255,0.05);
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:var(--bg-color);
+    color:var(--text-color);
+    line-height:1.6;
+    transition:all 0.3s ease;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+/* =========================
+   HEADER / NAVBAR
+========================= */
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:var(--card-bg);
+    box-shadow:var(--shadow);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1rem 0;
+}
+
+.logo{
+    font-size:1.6rem;
+    font-weight:bold;
+    color:var(--primary);
+}
+
+.nav-links{
+    display:flex;
+    gap:1.5rem;
+}
+
+.nav-links a{
+    position:relative;
+    font-weight:500;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    left:0;
+    bottom:-4px;
+    background:var(--primary);
+    transition:0.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/* =========================
+   HERO SECTION (GRID)
+========================= */
+.hero{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2rem;
+    align-items:center;
+    min-height:90vh;
+}
+
+.hero-content h1{
+    font-size:2.3rem;
+}
+
+.hero-content span{
+    color:var(--primary);
+}
+
+.hero-content p{
+    margin:1rem 0;
+    color:gray;
+}
+
+.hero-btn{
+    display:inline-block;
+    background:var(--primary);
+    color:#fff;
+    padding:12px 25px;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    opacity:0.9;
+}
+
+/* =========================
+   SECTION TITLES
+========================= */
+.section-title{
+    text-align:center;
+    margin:3rem 0 1rem;
+    font-size:2rem;
+}
+
+/* =========================
+   SKILLS (GRID)
+========================= */
+.skills-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.5rem;
+}
+
+.skill-card{
+    background:var(--card-bg);
+    padding:1.5rem;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:0.3s;
+}
+
+.skill-card:hover{
+    transform:translateY(-5px);
+}
+
+/* =========================
+   PROJECTS (GRID)
+========================= */
+.projects-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.5rem;
+}
+
+.project-card{
+    background:var(--card-bg);
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:0.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+}
+
+.project-content{
+    padding:1rem;
+}
+
+/* =========================
+   CONTACT FORM (FLEXBOX)
+========================= */
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    max-width:600px;
+    margin:auto;
+}
+
+.contact-form input,
+.contact-form textarea{
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:transparent;
+    color:var(--text-color);
+}
+
+.contact-form button{
+    background:var(--primary);
+    color:white;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.contact-form button:hover{
+    opacity:0.9;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer{
+    text-align:center;
+    padding:2rem;
+    margin-top:3rem;
+    background:var(--card-bg);
+}
+
+/* =========================
+   DARK MODE BUTTON
+========================= */
+#theme-toggle{
+    border:none;
+    background:var(--secondary);
+    padding:8px 12px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* =========================
+   TABLET VIEW
+========================= */
+@media(min-width:768px){
+
+    .hero{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero-content h1{
+        font-size:3rem;
+    }
+
+    .skills-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .projects-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* =========================
+   DESKTOP VIEW
+========================= */
+@media(min-width:1024px){
+
+    .container{
+        width:85%;
+    }
+
+    .hero-content h1{
+        font-size:3.5rem;
+    }
+
+    .skills-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .projects-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
